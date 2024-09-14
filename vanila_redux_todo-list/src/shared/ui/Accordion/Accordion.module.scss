@@ -1,0 +1,31 @@
+.Accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 256px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.content {
+}

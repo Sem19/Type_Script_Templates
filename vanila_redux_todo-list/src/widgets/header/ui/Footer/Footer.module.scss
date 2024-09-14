@@ -1,0 +1,45 @@
+.Footer {
+  background-color: black;
+  height: 464px;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logoContainer {
+  max-width: 384px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .logoText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 23.87px;
+    color: #cfcfcf;
+  }
+
+  .socialMediaButtons {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+}
+.quickLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #ffffff;
+  }
+}

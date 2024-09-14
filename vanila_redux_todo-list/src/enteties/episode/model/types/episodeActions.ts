@@ -1,0 +1,28 @@
+import { EpisodeActionTypes } from "./../actionTypes/episodeActionTypes";
+import { EpisodeStateSchema } from "./episodeTypes";
+
+export type EpisodeSetIsLoadingType = {
+  type: EpisodeActionTypes.SET_IS_LOADING;
+  payload: EpisodeStateSchema["isLoading"];
+};
+
+export type EpisodeSetErrorType = {
+  type: EpisodeActionTypes.SET_ERROR;
+  payload: EpisodeStateSchema["error"];
+};
+
+export type EpisodeSetEpisodesType = {
+  type: EpisodeActionTypes.SET_EPISODES;
+  payload: EpisodeStateSchema["episodes"];
+};
+
+export type EpisodeSetSingleEpisodeType = {
+  type: EpisodeActionTypes.SET_SINGLE_EPISODE;
+  payload: EpisodeStateSchema["singleEpisode"];
+};
+
+export type EpisodeActions =
+  | EpisodeSetIsLoadingType
+  | EpisodeSetErrorType
+  | EpisodeSetEpisodesType
+  | EpisodeSetSingleEpisodeType;

@@ -1,0 +1,14 @@
+@mixin Link($color) {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+  text-decoration: none;
+  color: $color;
+}
+
+.NavLinkActive {
+  @include Link(black);
+}
+.NavLink {
+  @include Link(grey);
+}

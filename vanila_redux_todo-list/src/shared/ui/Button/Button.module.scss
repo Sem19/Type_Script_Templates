@@ -1,0 +1,64 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+.bgTransparent {
+  background-color: transparent;
+}
+
+.borderRadiusSmall {
+  border-radius: 6px;
+}
+
+.borderRadiusMedium {
+  border-radius: 8px;
+}
+
+.border {
+  border: 1px solid transparent;
+}
+
+.borderColorWhite {
+  border-color: white;
+}
+
+.borderColorBlack {
+  border-color: black;
+}
+
+.fontSizeSmall {
+  font-size: 14px;
+}
+.fontSizeMedium {
+  font-size: 16px;
+}
+
+.paddingSmall {
+  padding: 0 56px;
+}
+
+.paddingMedium {
+  padding: 0 64px;
+}
+
+.heightSmall {
+  height: 48px;
+}
+.heightMedium {
+  height: 56px;
+}
+
+.fontColorBlack {
+  color: black;
+}
+
+.fontColorWhite {
+  color: white;
+}

@@ -1,14 +1,10 @@
+import { ResponseMeta } from "@/shared/libs/types/meta";
 import { IEpisode } from "./episodeTypes";
 
 export type GetAllEpisodeRequest = void;
 
 export interface getAllEpisodeResponse {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
-  };
+  info: ResponseMeta;
 
   results: IEpisode[];
 }

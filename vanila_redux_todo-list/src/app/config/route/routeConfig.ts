@@ -1,6 +1,6 @@
 export const routeConfig = {
   home: "/",
-  test: "test",
+  test: "/test",
   singleCharacter: "/:id",
   notFound: "*",
 };

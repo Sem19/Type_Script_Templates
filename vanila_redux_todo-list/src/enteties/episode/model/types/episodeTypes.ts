@@ -1,3 +1,5 @@
+import { PaginationInfo } from "@/shared/libs/types/meta";
+
 export interface IEpisode {
   id: number;
   name: string;
@@ -11,6 +13,7 @@ export interface IEpisode {
 export interface EpisodeStateSchema {
   isLoading: boolean;
   error: string;
+  pagination: PaginationInfo;
   episodes: IEpisode[];
   singleEpisode: IEpisode | null;
 }

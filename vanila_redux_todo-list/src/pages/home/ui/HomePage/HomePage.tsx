@@ -1,35 +1,22 @@
 // react
-import { FC, useEffect } from "react";
+import { FC } from "react";
 // styles
 import styles from "./HomePage.module.scss";
-import { useSelector } from "react-redux";
-import { useDispatch } from "@/shared/libs/hooks/useDispatch";
-import { getAllLocations } from "@/enteties/location/model/thunks/locationThunks";
-import { getLocationState } from "@/enteties/location/model/selectors/locationSelectors";
-import { LocationItemList } from "@/enteties/location/ui/LocationItemList/LocationItemList";
+import { Link } from "react-router-dom";
+import {
+  getCharacterRoute,
+  getEpisodeRoute,
+  getLocationRoute,
+} from "@/shared/libs/constants/routes";
 
 interface HomePageProps {}
 
 export const HomePage: FC<HomePageProps> = ({}) => {
-  const { locations, error, isLoading } = useSelector(getLocationState);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllLocations);
-  }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
   return (
     <div className={styles.HomePage}>
-      <LocationItemList items={locations} />
+      <Link to={getCharacterRoute()}>Characters</Link>
+      <Link to={getEpisodeRoute()}>Episodes</Link>
+      <Link to={getLocationRoute()}>Locations</Link>
     </div>
   );
 };

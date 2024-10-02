@@ -12,7 +12,7 @@ export const getAllCharacters = (
   dispatch(setIsLoading(true));
 
   characterService
-    .getAllCharacters()
+    .getAllCharacters({ searchQuery: "" })
     .then(({ data }) => {
       dispatch(setCharacters(data.results));
     })

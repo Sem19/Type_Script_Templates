@@ -24,4 +24,7 @@ interface CharacterStateSchema {
   error: string;
   characters: ICharacter[];
   singleCharacter: ICharacter | null;
+  meta: {
+    searchQuery: string;
+  };
 }

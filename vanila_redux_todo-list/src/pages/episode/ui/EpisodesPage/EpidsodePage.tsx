@@ -1,16 +1,16 @@
 // react
 import { FC, useEffect } from "react";
 // styles
-import styles from "./TestPage.module.scss";
+import styles from "./EpisodePage.module.scss";
 import { EpisodeItemList } from "@/enteties/episode/ui/EpisodeItemList/EpisodeItemList";
 import { useSelector } from "react-redux";
 import { getEpisodeState } from "@/enteties/episode/model/selectors/episodeSelectors";
 import { getAllEpisodes } from "@/enteties/episode/model/thunks/episodeThunks";
 import { useDispatch } from "@/shared/libs/hooks/useDispatch";
 
-interface TestPageProps {}
+interface EpisodePageProps {}
 
-export const TestPage: FC<TestPageProps> = ({}) => {
+export const EpisodePage: FC<EpisodePageProps> = ({}) => {
   const { episodes, isLoading, error } = useSelector(getEpisodeState);
 
   const dispatch = useDispatch();

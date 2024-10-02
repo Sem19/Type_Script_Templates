@@ -1,4 +1,6 @@
-export type GetAllCharacterRequest = void;
+export interface GetAllCharacterRequest {
+  searchQuery: string;
+}
 
 export interface GetAllCharacterResponse {
   info: {

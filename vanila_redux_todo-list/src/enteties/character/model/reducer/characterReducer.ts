@@ -7,6 +7,9 @@ const initialState: CharacterStateSchema = {
   singleCharacter: null,
   error: "",
   isLoading: false,
+  meta: {
+    searchQuery: "",
+  },
 };
 
 export const characterReducer: Reducer<
@@ -28,6 +31,10 @@ export const characterReducer: Reducer<
 
     case CharacterActionTypes.SET_SINGLE_CHARACTER: {
       return { ...state, singleCharacter: action.payload };
+    }
+
+    case CharacterActionTypes.CLEAR_ALL_CHARACTER_META: {
+      return { ...state, meta: initialState.meta };
     }
 
     default: {

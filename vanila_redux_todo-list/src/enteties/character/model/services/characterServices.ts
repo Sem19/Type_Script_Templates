@@ -9,15 +9,15 @@ import {
 class characterServices {
   private characterEndPoint = "/character";
 
-  async getAllCharacters(params: GetAllCharacterRequest) {
+  async getAllCharacters({ searchQuery }: GetAllCharacterRequest) {
     return rickmortyAPIinstanse.get<GetAllCharacterResponse>(
-      this.characterEndPoint
+      `${this.characterEndPoint}?name=${searchQuery}`
     );
   }
 
-  async getSingleCharacter(params: getSingleCharacterRequest) {
+  async getSingleCharacter(id: getSingleCharacterRequest) {
     return rickmortyAPIinstanse.get<getSingleCharacterResponse>(
-      `${this.characterEndPoint}/${params}`
+      `${this.characterEndPoint}/${id}`
     );
   }
 }

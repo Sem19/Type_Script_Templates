@@ -1,6 +1,10 @@
 export const routeConfig = {
   home: "/",
-  test: "/test",
-  singleCharacter: "/:id",
+  character: "/character",
+  singleCharacter: "/character/:id",
+  episode: "/episode",
+  singleEpisode: "/episode/:id",
+  location: "/location",
+  singleLocation: "/location/:id",
   notFound: "*",
 };

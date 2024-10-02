@@ -20,8 +20,13 @@ export type CharacterSetSingleCharacterType = {
   payload: CharacterStateSchema["singleCharacter"];
 };
 
+export type CharacterClearAllCharacterMetaType = {
+  type: CharacterActionTypes.CLEAR_ALL_CHARACTER_META;
+};
+
 export type CharacterActions =
   | CharacterSetCharactersType
   | CharacterSetErrorType
   | CharacterSetIsLoadingType
-  | CharacterSetSingleCharacterType;
+  | CharacterSetSingleCharacterType
+  | CharacterClearAllCharacterMetaType;

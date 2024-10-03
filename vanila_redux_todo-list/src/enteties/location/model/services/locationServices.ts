@@ -1,8 +1,10 @@
+import { rickmortyAPIinstanse } from "@/shared/api/rickmortyAPIinstanse";
 import {
   GetAllLocationRequest,
   GetAllLocationResponse,
+  getSingleLocationRequest,
+  getSingleLocationResponse,
 } from "../types/locationServicesTypes";
-import { rickmortyAPIinstanse } from "@/shared/api/rickmortyAPIinstanse";
 
 class locationsServices {
   private locationEndPoint = "/location";
@@ -10,6 +12,12 @@ class locationsServices {
   async getAllLocations(params: GetAllLocationRequest) {
     return rickmortyAPIinstanse.get<GetAllLocationResponse>(
       this.locationEndPoint
+    );
+  }
+
+  async getSingleLocation(id: getSingleLocationRequest) {
+    return rickmortyAPIinstanse.get<getSingleLocationResponse>(
+      `${this.locationEndPoint}/${id}`
     );
   }
 }

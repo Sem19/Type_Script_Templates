@@ -1,24 +1,48 @@
-import { Dispatch } from "redux";
-import { LocationActions } from "../types/locationActions";
+import { AppDispatch } from "@/app/config/store/createReduxStore";
 import { StateSchema } from "@/app/config/store/stateSchema";
 import { locationActionCreators } from "../actionCreators/locationActionCreators";
 import { locationsService } from "../services/locationServices";
 
 export const getAllLocations = (
-  dispatch: Dispatch<LocationActions>,
+  dispatch: AppDispatch,
   getState: () => StateSchema
 ) => {
-  dispatch(locationActionCreators.setIsLoading(true));
+  const { setLocations, setError, setIsLoading } = locationActionCreators;
+
+  dispatch(setIsLoading(true));
 
   locationsService
-    .getAllLocations()
+    .getAllLocations({ searchQuery: "" })
     .then(({ data }) => {
-      dispatch(locationActionCreators.setLocations(data.results));
+      dispatch(setLocations(data.results));
     })
     .catch((error) => {
-      dispatch(locationActionCreators.setError(error.message));
+      dispatch(setError(error.message));
     })
     .finally(() => {
-      dispatch(locationActionCreators.setIsLoading(false));
+      dispatch(setIsLoading(false));
     });
+};
+
+export const getSingleLocation = (
+  id: Parameters<typeof locationsService.getSingleLocation>[0]
+) => {
+  return (dispatch: AppDispatch, getState: () => StateSchema) => {
+    const { setSingleLocation, setError, setIsLoading } =
+      locationActionCreators;
+
+    dispatch(setIsLoading(true));
+
+    locationsService
+      .getSingleLocation(id)
+      .then(({ data }) => {
+        dispatch(setSingleLocation(data));
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
+      });
+  };
 };

@@ -1,1 +1,1 @@
-export { EpisodePage } from "./EpisodesPage/EpidsodePage";
+export { EpisodePage } from "./EpisodePage/EpidsodePage";

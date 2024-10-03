@@ -1,8 +1,10 @@
+import { rickmortyAPIinstanse } from "@/shared/api/rickmortyAPIinstanse";
 import {
   GetAllEpisodeRequest,
   getAllEpisodeResponse,
+  getSingleEpisodeRequest,
+  getSingleEpisodeResponse,
 } from "./../types/episodeServicesTypes";
-import { rickmortyAPIinstanse } from "@/shared/api/rickmortyAPIinstanse";
 
 class episodesServices {
   private episodeEndPoint = "/episode";
@@ -10,6 +12,12 @@ class episodesServices {
   async getAllEpisodes(params: GetAllEpisodeRequest) {
     return rickmortyAPIinstanse.get<getAllEpisodeResponse>(
       this.episodeEndPoint
+    );
+  }
+
+  async getSingleEpisode(id: getSingleEpisodeRequest) {
+    return rickmortyAPIinstanse.get<getSingleEpisodeResponse>(
+      `${this.episodeEndPoint}/${id}`
     );
   }
 }

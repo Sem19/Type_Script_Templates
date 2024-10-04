@@ -16,7 +16,7 @@ export const RootLayout: FC<RootLayoutProps> = ({}) => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -1,0 +1,11 @@
+img {
+  border-radius: 5px;
+}
+.CharacterItem img {
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out; /* Додаємо плавний перехід */
+}
+
+.CharacterItem img:hover {
+  box-shadow: 0 8px 16px rgba(76, 175, 80, 0.6); /* Зелена тінь при наведенні */
+}

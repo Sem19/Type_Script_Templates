@@ -1,33 +1,32 @@
 import { AppDispatch } from "@/app/config/store/createReduxStore";
-import { StateSchema } from "@/app/config/store/stateSchema";
+
 import { characterActionCreators } from "../actionCreators/characterActionCreators";
 import { characterService } from "../services/characterServices";
 
-export const getAllCharacters = (
-  dispatch: AppDispatch,
-  getState: () => StateSchema
-) => {
-  const { setCharacters, setError, setIsLoading } = characterActionCreators;
+export const getAllCharacters =
+  (meta: Parameters<typeof characterService.getAllCharacters>[0]) =>
+  (dispatch: AppDispatch) => {
+    const { setCharacters, setError, setIsLoading } = characterActionCreators;
 
-  dispatch(setIsLoading(true));
+    dispatch(setIsLoading(true));
 
-  characterService
-    .getAllCharacters({ searchQuery: "" })
-    .then(({ data }) => {
-      dispatch(setCharacters(data.results));
-    })
-    .catch((error) => {
-      dispatch(setError(error.message));
-    })
-    .finally(() => {
-      dispatch(setIsLoading(false));
-    });
-};
+    characterService
+      .getAllCharacters(meta)
+      .then(({ data }) => {
+        dispatch(setCharacters(data.results));
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
+      });
+  };
 
 export const getSingleCharacter = (
   id: Parameters<typeof characterService.getSingleCharacter>[0]
 ) => {
-  return (dispatch: AppDispatch, getState: () => StateSchema) => {
+  return (dispatch: AppDispatch) => {
     const { setSingleCharacter, setError, setIsLoading } =
       characterActionCreators;
 

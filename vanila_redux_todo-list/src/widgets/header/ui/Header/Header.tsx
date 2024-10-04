@@ -1,17 +1,15 @@
 // react
 import { FC } from "react";
-// shared
-import { Logo } from "@/shared/ui/Logo";
-// ui
-import { HeaderSearch } from "../HeaderSearch/HeaderSearch";
-import { HeaderNavigation } from "../HeaderNavigation/HeaderNavigation";
+
 // styles
 import styles from "./Header.module.scss";
-import { IconButton } from "@/shared/ui/IconButton";
-// assets
-import Heart from "@/shared/libs/assets/svg/heart.svg?react";
-import Cart from "@/shared/libs/assets/svg/cart.svg?react";
-import User from "@/shared/libs/assets/svg/user.svg?react";
+
+import { Link } from "react-router-dom";
+import {
+  getCharacterRoute,
+  getEpisodeRoute,
+  getLocationRoute,
+} from "@/shared/libs/constants/routes";
 
 interface HeaderProps {}
 
@@ -19,6 +17,11 @@ export const Header: FC<HeaderProps> = ({}) => {
   return (
     <div className={styles.Header}>
       <div className={styles.content}>
+        <Link to={getCharacterRoute()}>Characters</Link>
+        <Link to={getEpisodeRoute()}>Episodes</Link>
+        <Link to={getLocationRoute()}>Locations</Link>
+      </div>
+      {/* <div className={styles.content}>
         <Logo colorVariant="black" />
         <HeaderSearch />
         <HeaderNavigation />
@@ -27,7 +30,7 @@ export const Header: FC<HeaderProps> = ({}) => {
           <IconButton icon={<Cart />} onClick={() => {}} />
           <IconButton icon={<User />} onClick={() => {}} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

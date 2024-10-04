@@ -1,6 +1,8 @@
 // react
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
+//layouts
+import { RootLayout } from "@/app/layouts/root/RootLayout";
 // routes
 import {
   getHomeRoute,
@@ -23,15 +25,17 @@ interface AppRouterProps {}
 export const AppRouter: FC<AppRouterProps> = ({}) => {
   return (
     <Routes>
-      <Route element={<HomePage />} path={getHomeRoute()} />
-      <Route element={<EpisodePage />} path={getEpisodeRoute()} />
-      <Route element={<CharacterPage />} path={getCharacterRoute()} />
-      <Route element={<LocationPage />} path={getLocationRoute()} />
-      <Route element={<NotFoundPage />} path={getNotFoundRoute()} />
-      <Route
-        element={<SingleCharacterPage />}
-        path={getSingleCharacterRoute(":id")}
-      />
+      <Route element={<RootLayout />}>
+        <Route element={<HomePage />} path={getHomeRoute()} />
+        <Route element={<EpisodePage />} path={getEpisodeRoute()} />
+        <Route element={<CharacterPage />} path={getCharacterRoute()} />
+        <Route element={<LocationPage />} path={getLocationRoute()} />
+        <Route element={<NotFoundPage />} path={getNotFoundRoute()} />
+        <Route
+          element={<SingleCharacterPage />}
+          path={getSingleCharacterRoute(":id")}
+        />
+      </Route>
     </Routes>
   );
 };

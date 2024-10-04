@@ -4,6 +4,8 @@ import {
   CharacterSetCharactersType,
   CharacterSetErrorType,
   CharacterSetIsLoadingType,
+  CharacterClearAllCharacterMetaType,
+  CharacterSetCharacterSearchQuery,
 } from "../types/characterActions";
 
 const setIsLoading = (
@@ -42,9 +44,25 @@ const setSingleCharacter = (
   };
 };
 
+const clearAllCharacterMeta = (): CharacterClearAllCharacterMetaType => {
+  return {
+    type: CharacterActionTypes.CLEAR_ALL_CHARACTER_META,
+  };
+};
+const setCharacterSearchQuery = (
+  payload: CharacterSetCharacterSearchQuery["payload"]
+): CharacterSetCharacterSearchQuery => {
+  return {
+    type: CharacterActionTypes.SET_CHARACTER_SEARCH_QUERY,
+    payload: payload,
+  };
+};
+
 export const characterActionCreators = {
   setIsLoading,
   setError,
   setCharacters,
   setSingleCharacter,
+  clearAllCharacterMeta,
+  setCharacterSearchQuery,
 };

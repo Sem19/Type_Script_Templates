@@ -23,10 +23,15 @@ export type CharacterSetSingleCharacterType = {
 export type CharacterClearAllCharacterMetaType = {
   type: CharacterActionTypes.CLEAR_ALL_CHARACTER_META;
 };
+export type CharacterSetCharacterSearchQuery = {
+  type: CharacterActionTypes.SET_CHARACTER_SEARCH_QUERY;
+  payload: CharacterStateSchema["meta"]["searchQuery"];
+};
 
 export type CharacterActions =
   | CharacterSetCharactersType
   | CharacterSetErrorType
   | CharacterSetIsLoadingType
   | CharacterSetSingleCharacterType
-  | CharacterClearAllCharacterMetaType;
+  | CharacterClearAllCharacterMetaType
+  | CharacterSetCharacterSearchQuery;

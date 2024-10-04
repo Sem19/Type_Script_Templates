@@ -42,9 +42,18 @@ const setSingleEpisode = (
   };
 };
 
+const setClearAllEpisode = () => {
+  return {};
+};
+const setEpisodeSearcQuery = () => {
+  return {};
+};
+
 export const episodeActionCreators = {
   setIsLoading,
   setError,
   setEpisode,
   setSingleEpisode,
+  setClearAllEpisode,
+  setEpisodeSearcQuery,
 };

@@ -40,7 +40,9 @@ export const episodeReducer: Reducer<EpisodeStateSchema, EpisodeActions> = (
     case EpisodeActionTypes.CLEAR_ALL_EPISODE_META: {
       return { ...state, meta: initialState.meta };
     }
-
+    case EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY: {
+      return { ...state, meta: action.payload };
+    }
     default: {
       return { ...state };
     }

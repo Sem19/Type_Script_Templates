@@ -37,6 +37,10 @@ export const characterReducer: Reducer<
       return { ...state, meta: initialState.meta };
     }
 
+    case CharacterActionTypes.SET_CHARACTER_SEARCH_QUERY: {
+      return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
+    }
+
     default: {
       return { ...state };
     }

@@ -24,10 +24,15 @@ export type EpisodeSetSingleEpisodeType = {
 export type EpisodeClearAllEpisodeMeta = {
   type: EpisodeActionTypes.CLEAR_ALL_EPISODE_META;
 };
+export type EpisodeSetEpisodeSearchQuery = {
+  type: EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY;
+  payload: EpisodeStateSchema["meta"];
+};
 
 export type EpisodeActions =
   | EpisodeSetIsLoadingType
   | EpisodeSetErrorType
   | EpisodeSetEpisodesType
   | EpisodeSetSingleEpisodeType
-  | EpisodeClearAllEpisodeMeta;
+  | EpisodeClearAllEpisodeMeta
+  | EpisodeSetEpisodeSearchQuery;

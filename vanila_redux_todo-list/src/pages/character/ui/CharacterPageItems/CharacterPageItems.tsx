@@ -11,13 +11,13 @@ import { useDispatch } from "@/shared/libs/hooks/useDispatch";
 interface CharacterPageItemsProps {}
 
 export const CharacterPageItems: FC<CharacterPageItemsProps> = ({}) => {
-  const { characters, error, isLoading } = useSelector(getCharacterState);
+  const { characters, meta, error, isLoading } = useSelector(getCharacterState);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCharacters);
-  }, []);
+    dispatch(getAllCharacters(meta));
+  }, [meta]);
 
   if (isLoading) {
     return <div>...Loading</div>;

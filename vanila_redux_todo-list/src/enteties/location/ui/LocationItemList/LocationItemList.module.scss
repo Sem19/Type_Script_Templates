@@ -1,0 +1,8 @@
+.LocationItemList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  column-gap: 20px;
+  row-gap: 20px;
+}

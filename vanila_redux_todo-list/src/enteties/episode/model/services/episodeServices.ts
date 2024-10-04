@@ -9,9 +9,9 @@ import {
 class episodesServices {
   private episodeEndPoint = "/episode";
 
-  async getAllEpisodes(params: GetAllEpisodeRequest) {
+  async getAllEpisodes({ searchQuery }: GetAllEpisodeRequest) {
     return rickmortyAPIinstanse.get<getAllEpisodeResponse>(
-      this.episodeEndPoint
+      `${this.episodeEndPoint}?name=${searchQuery}`
     );
   }
 

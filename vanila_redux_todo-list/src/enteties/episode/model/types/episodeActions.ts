@@ -21,8 +21,13 @@ export type EpisodeSetSingleEpisodeType = {
   payload: EpisodeStateSchema["singleEpisode"];
 };
 
+export type EpisodeClearAllEpisodeMeta = {
+  type: EpisodeActionTypes.CLEAR_ALL_EPISODE_META;
+};
+
 export type EpisodeActions =
   | EpisodeSetIsLoadingType
   | EpisodeSetErrorType
   | EpisodeSetEpisodesType
-  | EpisodeSetSingleEpisodeType;
+  | EpisodeSetSingleEpisodeType
+  | EpisodeClearAllEpisodeMeta;

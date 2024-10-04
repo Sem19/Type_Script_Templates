@@ -16,4 +16,7 @@ export interface EpisodeStateSchema {
   pagination: PaginationInfo;
   episodes: IEpisode[];
   singleEpisode: IEpisode | null;
+  meta: {
+    searchQuery: string;
+  };
 }

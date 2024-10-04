@@ -8,7 +8,6 @@ interface EpisodeItemProps extends IEpisode {}
 
 export const EpisodeItem: FC<EpisodeItemProps> = ({
   air_date,
-  characters,
   created,
   episode,
   id,
@@ -17,35 +16,19 @@ export const EpisodeItem: FC<EpisodeItemProps> = ({
 }) => {
   return (
     <div className={styles.EpisodeItem}>
+      <h2 className={styles.Title}>{name}</h2>
       <div>
-        <h3>GET</h3>
-        <p>https://rickandmortyapi.com/api/episode/{id}</p>
-      </div>
-      <hr className={styles.separator} />
-      <div>
-        <span className={styles.key}>"id" : </span>
-        <span>{id}</span>
+        <strong>Episode Code:</strong> {episode}
       </div>
       <div>
-        <span className={styles.key}>"name" : </span>
-        <span>{name}</span>
+        <strong>Air Date:</strong> {air_date}
       </div>
       <div>
-        <span className={styles.key}>"air_date" : </span>
-        <span>{air_date}</span>
+        <strong>Created:</strong> {new Date(created).toLocaleDateString()}
       </div>
-      <div>
-        <span className={styles.key}>"episode" : </span>
-        <span>{episode}</span>
-      </div>
-      <div>
-        <span className={styles.key}>"url" : </span>
-        <span>{url}</span>
-      </div>
-      <div>
-        <span className={styles.key}>"created" : </span>
-        <span>{created}</span>
-      </div>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        View More
+      </a>
     </div>
   );
 };

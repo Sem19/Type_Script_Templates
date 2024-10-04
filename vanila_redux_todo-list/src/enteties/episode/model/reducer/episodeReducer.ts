@@ -15,6 +15,9 @@ const initialState: EpisodeStateSchema = {
     pages: 0,
   },
   isLoading: false,
+  meta: {
+    searchQuery: "",
+  },
 };
 
 export const episodeReducer: Reducer<EpisodeStateSchema, EpisodeActions> = (
@@ -34,6 +37,10 @@ export const episodeReducer: Reducer<EpisodeStateSchema, EpisodeActions> = (
     case EpisodeActionTypes.SET_SINGLE_EPISODE: {
       return { ...state, singleEpisode: action.payload };
     }
+    case EpisodeActionTypes.CLEAR_ALL_EPISODE_META: {
+      return { ...state, meta: initialState.meta };
+    }
+
     default: {
       return { ...state };
     }

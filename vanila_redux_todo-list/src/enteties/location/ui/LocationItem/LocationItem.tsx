@@ -17,8 +17,22 @@ export const LocationItem: FC<LocationItemProps> = ({
 }) => {
   return (
     <div className={styles.LocationItem}>
-      <div>{name}</div>
-      <div>{type}</div>
+      <h2 className={styles.Title}>{name}</h2>
+      <div>
+        <strong>Type:</strong> {type}
+      </div>
+      <div>
+        <strong>Dimension:</strong> {dimension}
+      </div>
+      <div>
+        <strong>Created:</strong> {new Date(created).toLocaleDateString()}
+      </div>
+      <div>
+        <strong>Residents:</strong> {residents.length} resident(s)
+      </div>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        View More
+      </a>
     </div>
   );
 };

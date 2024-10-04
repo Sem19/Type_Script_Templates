@@ -10,7 +10,7 @@ interface EpisodePageProps {}
 export const EpisodePage: FC<EpisodePageProps> = ({}) => {
   return (
     <div className={styles.EpisodPage}>
-      <h2 className={styles.title}>Get all episodes</h2>
+      <h2 className={styles.title}>Episodes</h2>
       <EpisodePageItems />
     </div>
   );

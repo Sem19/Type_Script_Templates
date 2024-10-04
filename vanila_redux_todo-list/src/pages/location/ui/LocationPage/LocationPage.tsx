@@ -10,6 +10,7 @@ interface LocationPageProps {}
 export const LocationPage: FC<LocationPageProps> = ({}) => {
   return (
     <div className={styles.LocationPage}>
+      <h2 className={styles.title}>Locations</h2>
       <LocationPageItems />
     </div>
   );

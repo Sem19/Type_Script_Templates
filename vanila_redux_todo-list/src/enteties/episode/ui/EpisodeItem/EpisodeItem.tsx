@@ -1,8 +1,10 @@
 // react
 import { FC } from "react";
+import { Link } from "react-router-dom";
 // styles
 import styles from "./EpisodeItem.module.scss";
 import { IEpisode } from "../../model/types/episodeTypes";
+import { getSingleEpisodeRoute } from "@/shared/libs/constants/routes";
 
 interface EpisodeItemProps extends IEpisode {}
 
@@ -12,7 +14,6 @@ export const EpisodeItem: FC<EpisodeItemProps> = ({
   episode,
   id,
   name,
-  url,
 }) => {
   return (
     <div className={styles.EpisodeItem}>
@@ -26,9 +27,7 @@ export const EpisodeItem: FC<EpisodeItemProps> = ({
       <div>
         <strong>Created:</strong> {new Date(created).toLocaleDateString()}
       </div>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        View More
-      </a>
+      <Link to={getSingleEpisodeRoute(id)}>View More</Link>
     </div>
   );
 };

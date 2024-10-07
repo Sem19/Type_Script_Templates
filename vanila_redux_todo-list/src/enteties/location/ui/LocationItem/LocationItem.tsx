@@ -1,8 +1,10 @@
 // react
 import { FC } from "react";
+import { Link } from "react-router-dom";
 // styles
 import styles from "./LocationItem.module.scss";
 import { ILocation } from "../../model/types/locationTypes";
+import { getSingleLocationRoute } from "@/shared/libs/constants/routes";
 
 interface LocationItemProps extends ILocation {}
 
@@ -30,9 +32,8 @@ export const LocationItem: FC<LocationItemProps> = ({
       <div>
         <strong>Residents:</strong> {residents.length} resident(s)
       </div>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        View More
-      </a>
+      {/* <a href={url} target="_blank" rel="noopener noreferrer"></a> */}
+      <Link to={getSingleLocationRoute(id)}>View More</Link>
     </div>
   );
 };

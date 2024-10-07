@@ -11,14 +11,18 @@ import {
   getEpisodeRoute,
   getLocationRoute,
   getCharacterRoute,
+  getSingleEpisodeRoute,
+  getSingleLocationRoute,
 } from "@/shared/libs/constants/routes";
 // pages
 import { HomePage } from "@/pages/home";
 import { NotFoundPage } from "@/pages/notFound";
-import { SingleCharacterPage } from "@/pages/singleCharacter/ui/SingleCharacterPage/SingleCharacterPage";
 import { EpisodePage } from "@/pages/episode/ui";
+import { SingleEpisodePage } from "@/pages/singleEpisode/ui/SingleEpisodePage/SingleEpisodePage";
 import { LocationPage } from "@/pages/location/ui/LocationPage/LocationPage";
+import { SingleLocationPage } from "@/pages/singleLocation/ui/SingleLocationPage/SingleLocationPage";
 import { CharacterPage } from "@/pages/character/ui";
+import { SingleCharacterPage } from "@/pages/singleCharacter/ui/SingleCharacterPage/SingleCharacterPage";
 
 interface AppRouterProps {}
 
@@ -34,6 +38,14 @@ export const AppRouter: FC<AppRouterProps> = ({}) => {
         <Route
           element={<SingleCharacterPage />}
           path={getSingleCharacterRoute(":id")}
+        />
+        <Route
+          element={<SingleLocationPage />}
+          path={getSingleLocationRoute(":id")}
+        />
+        <Route
+          element={<SingleEpisodePage />}
+          path={getSingleEpisodeRoute(":id")}
         />
       </Route>
     </Routes>

@@ -1,13 +1,14 @@
 // react
 import { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "@/shared/libs/hooks/useDispatch";
+//ui
+import { CharacterItem } from "@/enteties/character/ui/CharacterItem/CharacterItem";
+import { getCharacterState } from "@/enteties/character/model/selectors/characterSelectors";
+import { getSingleCharacter } from "@/enteties/character/model/thunks/characterThunks";
 // styles
 import styles from "./SingleCharacterPage.module.scss";
-import { CharacterItem } from "@/enteties/character/ui/CharacterItem/CharacterItem";
-import { useSelector } from "react-redux";
-import { getCharacterState } from "@/enteties/character/model/selectors/characterSelectors";
-import { useDispatch } from "@/shared/libs/hooks/useDispatch";
-import { getSingleCharacter } from "@/enteties/character/model/thunks/characterThunks";
 
 interface SingleCharacterPageProps {}
 

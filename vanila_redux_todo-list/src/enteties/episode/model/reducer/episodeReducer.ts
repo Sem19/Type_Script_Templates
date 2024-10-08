@@ -41,7 +41,7 @@ export const episodeReducer: Reducer<EpisodeStateSchema, EpisodeActions> = (
       return { ...state, meta: initialState.meta };
     }
     case EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY: {
-      return { ...state, meta: action.payload };
+      return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
     }
     default: {
       return { ...state };

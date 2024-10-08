@@ -1,5 +1,4 @@
 import { AppDispatch } from "@/app/config/store/createReduxStore";
-
 import { characterActionCreators } from "../actionCreators/characterActionCreators";
 import { characterService } from "../services/characterServices";
 

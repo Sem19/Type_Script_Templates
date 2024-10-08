@@ -12,13 +12,13 @@ import styles from "./LocationPageItems.module.scss";
 interface LocationPageItemsProps {}
 
 export const LocationPageItems: FC<LocationPageItemsProps> = ({}) => {
-  const { locations, error, isLoading } = useSelector(getLocationState);
+  const { locations, meta, error, isLoading } = useSelector(getLocationState);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllLocations);
-  }, []);
+    dispatch(getAllLocations(meta));
+  }, [meta]);
 
   if (isLoading) {
     return <div>Loading...</div>;

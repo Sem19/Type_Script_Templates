@@ -9,9 +9,9 @@ import {
 class locationsServices {
   private locationEndPoint = "/location";
 
-  async getAllLocations(params: GetAllLocationRequest) {
+  async getAllLocations({ searchQuery }: GetAllLocationRequest) {
     return rickmortyAPIinstanse.get<GetAllLocationResponse>(
-      this.locationEndPoint
+      `${this.locationEndPoint}?name=${searchQuery}`
     );
   }
 

@@ -1,6 +1,8 @@
-import { LocationSetSingleLocationsType } from "./../types/locationActions";
 import { LocationActionTypes } from "../actionTypes/locationActionTypes";
 import {
+  LocationClearAllLocationMetaType,
+  LocationSetLocationSearchQuery,
+  LocationSetSingleLocationsType,
   LocationSetErrorType,
   LocationSetIsLoadingType,
   LocationSetLocationsType,
@@ -42,9 +44,26 @@ const setSingleLocation = (
   };
 };
 
+const clearAllLocationMeta = (): LocationClearAllLocationMetaType => {
+  return {
+    type: LocationActionTypes.CLEAR_ALL_LOCATION_META,
+  };
+};
+
+const setLocationSearchQuery = (
+  payload: LocationSetLocationSearchQuery["payload"]
+): LocationSetLocationSearchQuery => {
+  return {
+    type: LocationActionTypes.SET_LOCATION_SEARCH_QUERY,
+    payload: payload,
+  };
+};
+
 export const locationActionCreators = {
   setIsLoading,
   setError,
   setLocations,
   setSingleLocation,
+  clearAllLocationMeta,
+  setLocationSearchQuery,
 };

@@ -26,7 +26,7 @@ export type EpisodeClearAllEpisodeMeta = {
 };
 export type EpisodeSetEpisodeSearchQuery = {
   type: EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY;
-  payload: EpisodeStateSchema["meta"];
+  payload: EpisodeStateSchema["meta"]["searchQuery"];
 };
 
 export type EpisodeActions =

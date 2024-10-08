@@ -1,5 +1,7 @@
 import { EpisodeActionTypes } from "../actionTypes/episodeActionTypes";
 import {
+  EpisodeClearAllEpisodeMeta,
+  EpisodeSetEpisodeSearchQuery,
   EpisodeSetEpisodesType,
   EpisodeSetErrorType,
   EpisodeSetIsLoadingType,
@@ -42,11 +44,18 @@ const setSingleEpisode = (
   };
 };
 
-const setClearAllEpisode = () => {
-  return {};
+const clearAllEpisodeMeta = (): EpisodeClearAllEpisodeMeta => {
+  return {
+    type: EpisodeActionTypes.CLEAR_ALL_EPISODE_META,
+  };
 };
-const setEpisodeSearcQuery = () => {
-  return {};
+const setEpisodeSearchQuery = (
+  payload: EpisodeSetEpisodeSearchQuery["payload"]
+): EpisodeSetEpisodeSearchQuery => {
+  return {
+    type: EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY,
+    payload: payload,
+  };
 };
 
 export const episodeActionCreators = {
@@ -54,6 +63,6 @@ export const episodeActionCreators = {
   setError,
   setEpisode,
   setSingleEpisode,
-  setClearAllEpisode,
-  setEpisodeSearcQuery,
+  clearAllEpisodeMeta,
+  setEpisodeSearchQuery,
 };

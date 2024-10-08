@@ -27,6 +27,12 @@ export const locationReducer: Reducer<LocationStateSchema, LocationActions> = (
     case LocationActionTypes.SET_SINGLE_LOCATION: {
       return { ...state, singleLocation: action.payload };
     }
+    case LocationActionTypes.CLEAR_ALL_LOCATION_META: {
+      return { ...state, meta: initialState.meta };
+    }
+    case LocationActionTypes.SET_LOCATIO_SEARCH_QUERY: {
+      return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
+    }
     default: {
       return { ...state };
     }

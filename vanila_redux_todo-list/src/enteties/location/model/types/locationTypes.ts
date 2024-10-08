@@ -13,4 +13,7 @@ export interface LocationStateSchema {
   error: string;
   locations: ILocation[];
   singleLocation: ILocation | null;
+  meta: {
+    searchQuery: string;
+  };
 }

@@ -21,8 +21,19 @@ export type LocationSetSingleLocationsType = {
   payload: LocationStateSchema["singleLocation"];
 };
 
+export type LocationClearAllLocationMetaType = {
+  type: LocationActionTypes.CLEAR_ALL_LOCATION_META;
+};
+
+export type LocationSetLocationSearchQuery = {
+  type: LocationActionTypes.SET_LOCATIO_SEARCH_QUERY;
+  payload: LocationStateSchema["meta"]["searchQuery"];
+};
+
 export type LocationActions =
   | LocationSetIsLoadingType
   | LocationSetErrorType
   | LocationSetLocationsType
-  | LocationSetSingleLocationsType;
+  | LocationSetSingleLocationsType
+  | LocationClearAllLocationMetaType
+  | LocationSetLocationSearchQuery;

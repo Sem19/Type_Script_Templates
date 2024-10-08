@@ -11,13 +11,13 @@ import { EpisodeItemList } from "@/enteties/episode/ui/EpisodeItemList/EpisodeIt
 interface EpisodePageItemsProps {}
 
 export const EpisodePageItems: FC<EpisodePageItemsProps> = ({}) => {
-  const { episodes, isLoading, error } = useSelector(getEpisodeState);
+  const { episodes, isLoading, error, meta } = useSelector(getEpisodeState);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllEpisodes);
-  }, []);
+    dispatch(getAllEpisodes(meta));
+  }, [meta]);
 
   if (isLoading) {
     return <div>Loading...</div>;

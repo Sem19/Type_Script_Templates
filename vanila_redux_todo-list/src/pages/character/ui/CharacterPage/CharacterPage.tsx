@@ -11,7 +11,6 @@ interface CharacterPageProps {}
 export const CharacterPage: FC<CharacterPageProps> = ({}) => {
   return (
     <div className={styles.CharacterPage}>
-      <h2 className={styles.title}>Characters</h2>
       <div className={styles.CharacterSearchInput}>
         <CharacterSearchInput />
       </div>

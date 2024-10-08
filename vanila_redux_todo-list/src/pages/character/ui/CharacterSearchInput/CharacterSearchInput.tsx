@@ -1,12 +1,13 @@
 // react
 import { ChangeEvent, FC } from "react";
-// styles
-import styles from "./CharacterSearchInput.module.scss";
-import { Input } from "@/shared/ui/Input";
 import { getCharacterSearchQueryState } from "@/enteties/character/model/selectors/characterSelectors";
 import { useSelector } from "react-redux";
 import { useDispatch } from "@/shared/libs/hooks/useDispatch";
 import { characterActionCreators } from "@/enteties/character/model/actionCreators/characterActionCreators";
+import { Input } from "@/shared/ui/Input";
+//ui
+// styles
+import styles from "./CharacterSearchInput.module.scss";
 
 interface CharacterSearchInputProps {}
 

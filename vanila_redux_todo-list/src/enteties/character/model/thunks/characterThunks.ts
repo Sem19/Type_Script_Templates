@@ -13,6 +13,7 @@ export const getAllCharacters =
       .getAllCharacters(meta)
       .then(({ data }) => {
         dispatch(setCharacters(data.results));
+        // dispatch(setError(""));
       })
       .catch((error) => {
         dispatch(setError(error.message));

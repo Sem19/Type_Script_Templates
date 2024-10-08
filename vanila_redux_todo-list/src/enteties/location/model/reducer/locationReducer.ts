@@ -8,6 +8,7 @@ const initialState: LocationStateSchema = {
   singleLocation: null,
   error: "",
   isLoading: false,
+  meta: { searchQuery: "" },
 };
 
 export const locationReducer: Reducer<LocationStateSchema, LocationActions> = (
@@ -30,7 +31,7 @@ export const locationReducer: Reducer<LocationStateSchema, LocationActions> = (
     case LocationActionTypes.CLEAR_ALL_LOCATION_META: {
       return { ...state, meta: initialState.meta };
     }
-    case LocationActionTypes.SET_LOCATIO_SEARCH_QUERY: {
+    case LocationActionTypes.SET_LOCATION_SEARCH_QUERY: {
       return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
     }
     default: {

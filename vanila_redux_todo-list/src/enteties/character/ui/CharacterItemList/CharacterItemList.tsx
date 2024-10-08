@@ -14,7 +14,7 @@ export const CharacterItemList: FC<CharacterItemListProps> = ({
   return (
     <div className={styles.CharacterItemList}>
       {characters?.map((item) => {
-        return <CharacterItem {...item} />;
+        return <CharacterItem key={item.id} {...item} />;
       })}
     </div>
   );

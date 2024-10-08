@@ -28,10 +28,26 @@ export type CharacterSetCharacterSearchQuery = {
   payload: CharacterStateSchema["meta"]["searchQuery"];
 };
 
+export type CharacterSetCharacterPageType = {
+  type: CharacterActionTypes.SET_CHARACTER_PAGE;
+  payload: CharacterStateSchema["meta"]["currentPage"];
+};
+
+export type CharacterSetCharacterPageForwardType = {
+  type: CharacterActionTypes.SET_CHARACTER_PAGE_FORWARD;
+};
+
+export type CharacterSetCharacterPageBackType = {
+  type: CharacterActionTypes.SET_CHARACTER_PAGE_BACK;
+};
+
 export type CharacterActions =
   | CharacterSetCharactersType
   | CharacterSetErrorType
   | CharacterSetIsLoadingType
   | CharacterSetSingleCharacterType
   | CharacterClearAllCharacterMetaType
-  | CharacterSetCharacterSearchQuery;
+  | CharacterSetCharacterSearchQuery
+  | CharacterSetCharacterPageType
+  | CharacterSetCharacterPageForwardType
+  | CharacterSetCharacterPageBackType;

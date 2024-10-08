@@ -26,7 +26,7 @@ export type LocationClearAllLocationMetaType = {
 };
 
 export type LocationSetLocationSearchQuery = {
-  type: LocationActionTypes.SET_LOCATIO_SEARCH_QUERY;
+  type: LocationActionTypes.SET_LOCATION_SEARCH_QUERY;
   payload: LocationStateSchema["meta"]["searchQuery"];
 };
 

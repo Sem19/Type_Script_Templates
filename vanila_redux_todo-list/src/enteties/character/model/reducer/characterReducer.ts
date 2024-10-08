@@ -9,6 +9,11 @@ const initialState: CharacterStateSchema = {
   isLoading: false,
   meta: {
     searchQuery: "",
+    currentPage: 1,
+    count: 0,
+    next: null,
+    pages: 0,
+    prev: null,
   },
 };
 
@@ -39,6 +44,36 @@ export const characterReducer: Reducer<
 
     case CharacterActionTypes.SET_CHARACTER_SEARCH_QUERY: {
       return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
+    }
+
+    case CharacterActionTypes.SET_CHARACTER_PAGE: {
+      return { ...state, meta: { ...state.meta, currentPage: action.payload } };
+    }
+
+    case CharacterActionTypes.SET_CHARACTER_PAGE_BACK: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== 1
+              ? state.meta.currentPage - 1
+              : state.meta.currentPage,
+        },
+      };
+    }
+
+    case CharacterActionTypes.SET_CHARACTER_PAGE_FORWARD: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== state.meta.pages
+              ? state.meta.currentPage + 1
+              : state.meta.currentPage,
+        },
+      };
     }
 
     default: {

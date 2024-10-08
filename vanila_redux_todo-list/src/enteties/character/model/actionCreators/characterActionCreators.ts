@@ -1,4 +1,9 @@
-import { CharacterSetSingleCharacterType } from "./../types/characterActions";
+import {
+  CharacterSetCharacterPageBackType,
+  CharacterSetCharacterPageForwardType,
+  CharacterSetCharacterPageType,
+  CharacterSetSingleCharacterType,
+} from "./../types/characterActions";
 import { CharacterActionTypes } from "../actionTypes/characterActionTypes";
 import {
   CharacterSetCharactersType,
@@ -58,6 +63,27 @@ const setCharacterSearchQuery = (
   };
 };
 
+const setCharacterPage = (
+  payload: CharacterSetCharacterPageType["payload"]
+): CharacterSetCharacterPageType => {
+  return {
+    type: CharacterActionTypes.SET_CHARACTER_PAGE,
+    payload: payload,
+  };
+};
+
+const setCharacterPageForward = (): CharacterSetCharacterPageForwardType => {
+  return {
+    type: CharacterActionTypes.SET_CHARACTER_PAGE_FORWARD,
+  };
+};
+
+const setCharacterPageBack = (): CharacterSetCharacterPageBackType => {
+  return {
+    type: CharacterActionTypes.SET_CHARACTER_PAGE_BACK,
+  };
+};
+
 export const characterActionCreators = {
   setIsLoading,
   setError,
@@ -65,4 +91,7 @@ export const characterActionCreators = {
   setSingleCharacter,
   clearAllCharacterMeta,
   setCharacterSearchQuery,
+  setCharacterPage,
+  setCharacterPageForward,
+  setCharacterPageBack,
 };

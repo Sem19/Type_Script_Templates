@@ -13,6 +13,7 @@ export const getAllLocations =
       .getAllLocations(meta)
       .then(({ data }) => {
         dispatch(setLocations(data.results));
+        dispatch(setError(""));
       })
       .catch((error) => {
         dispatch(setError(error.message));

@@ -14,6 +14,7 @@ export const getAllEpisodes =
       .getAllEpisodes(meta)
       .then(({ data }) => {
         dispatch(setEpisode(data.results));
+        dispatch(setError(""));
       })
       .catch((error) => {
         dispatch(setError(error.message));

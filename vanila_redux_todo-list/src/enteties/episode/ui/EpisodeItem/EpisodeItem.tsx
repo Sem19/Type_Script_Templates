@@ -16,18 +16,19 @@ export const EpisodeItem: FC<EpisodeItemProps> = ({
   name,
 }) => {
   return (
-    <div className={styles.EpisodeItem}>
-      <h2 className={styles.Title}>{name}</h2>
-      <div>
-        <strong>Episode Code:</strong> {episode}
+    <Link to={getSingleEpisodeRoute(id)} className={styles.LinkWrapper}>
+      <div className={styles.EpisodeItem}>
+        <h2 className={styles.Title}>{name}</h2>
+        <div>
+          <strong>Episode Code:</strong> {episode}
+        </div>
+        <div>
+          <strong>Air Date:</strong> {air_date}
+        </div>
+        <div>
+          <strong>Created:</strong> {new Date(created).toLocaleDateString()}
+        </div>
       </div>
-      <div>
-        <strong>Air Date:</strong> {air_date}
-      </div>
-      <div>
-        <strong>Created:</strong> {new Date(created).toLocaleDateString()}
-      </div>
-      <Link to={getSingleEpisodeRoute(id)}>View More</Link>
-    </div>
+    </Link>
   );
 };

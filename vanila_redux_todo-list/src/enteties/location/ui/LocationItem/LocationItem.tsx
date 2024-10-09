@@ -18,22 +18,22 @@ export const LocationItem: FC<LocationItemProps> = ({
   url,
 }) => {
   return (
-    <div className={styles.LocationItem}>
-      <h2 className={styles.Title}>{name}</h2>
-      <div>
-        <strong>Type:</strong> {type}
+    <Link to={getSingleLocationRoute(id)} className={styles.LinkWrapper}>
+      <div className={styles.LocationItem}>
+        <h2 className={styles.Title}>{name}</h2>
+        <div>
+          <strong>Type:</strong> {type}
+        </div>
+        <div>
+          <strong>Dimension:</strong> {dimension}
+        </div>
+        <div>
+          <strong>Created:</strong> {new Date(created).toLocaleDateString()}
+        </div>
+        <div>
+          <strong>Residents:</strong> {residents.length} resident(s)
+        </div>
       </div>
-      <div>
-        <strong>Dimension:</strong> {dimension}
-      </div>
-      <div>
-        <strong>Created:</strong> {new Date(created).toLocaleDateString()}
-      </div>
-      <div>
-        <strong>Residents:</strong> {residents.length} resident(s)
-      </div>
-      {/* <a href={url} target="_blank" rel="noopener noreferrer"></a> */}
-      <Link to={getSingleLocationRoute(id)}>View More</Link>
-    </div>
+    </Link>
   );
 };

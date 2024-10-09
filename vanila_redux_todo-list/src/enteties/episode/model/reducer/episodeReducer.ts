@@ -17,6 +17,11 @@ const initialState: EpisodeStateSchema = {
   isLoading: false,
   meta: {
     searchQuery: "",
+    currentPage: 1,
+    count: 0,
+    next: null,
+    pages: 0,
+    prev: null,
   },
 };
 
@@ -42,6 +47,33 @@ export const episodeReducer: Reducer<EpisodeStateSchema, EpisodeActions> = (
     }
     case EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY: {
       return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
+    }
+    case EpisodeActionTypes.SET_EPISODE_PAGE: {
+      return { ...state, meta: { ...state.meta, currentPage: action.payload } };
+    }
+    case EpisodeActionTypes.SET_EPISODE_PAGE_FORWARD: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== 1
+              ? state.meta.currentPage + 1
+              : state.meta.currentPage,
+        },
+      };
+    }
+    case EpisodeActionTypes.SET_EPISODE_PAGE_BACK: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== 1
+              ? state.meta.currentPage - 1
+              : state.meta.currentPage,
+        },
+      };
     }
     default: {
       return { ...state };

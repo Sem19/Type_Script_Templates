@@ -8,7 +8,14 @@ const initialState: LocationStateSchema = {
   singleLocation: null,
   error: "",
   isLoading: false,
-  meta: { searchQuery: "" },
+  meta: {
+    searchQuery: "",
+    currentPage: 1,
+    count: 0,
+    next: null,
+    pages: 0,
+    prev: null,
+  },
 };
 
 export const locationReducer: Reducer<LocationStateSchema, LocationActions> = (
@@ -33,6 +40,33 @@ export const locationReducer: Reducer<LocationStateSchema, LocationActions> = (
     }
     case LocationActionTypes.SET_LOCATION_SEARCH_QUERY: {
       return { ...state, meta: { ...state.meta, searchQuery: action.payload } };
+    }
+    case LocationActionTypes.SET_LOCATION_PAGE: {
+      return { ...state, meta: { ...state.meta, currentPage: action.payload } };
+    }
+    case LocationActionTypes.SET_LOCATION_PAGE_FORWARD: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== state.meta.pages
+              ? state.meta.currentPage + 1
+              : state.meta.currentPage,
+        },
+      };
+    }
+    case LocationActionTypes.SET_LOCATION_PAGE_BACK: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== 1
+              ? state.meta.currentPage - 1
+              : state.meta.currentPage,
+        },
+      };
     }
     default: {
       return { ...state };

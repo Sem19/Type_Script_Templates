@@ -1,3 +1,8 @@
+import {
+  EpisodeSetEpisodePageBackType,
+  EpisodeSetEpisodePageForwardType,
+  EpisodeSetEpisodePageType,
+} from "./../types/episodeActions";
 import { EpisodeActionTypes } from "../actionTypes/episodeActionTypes";
 import {
   EpisodeClearAllEpisodeMeta,
@@ -49,12 +54,34 @@ const clearAllEpisodeMeta = (): EpisodeClearAllEpisodeMeta => {
     type: EpisodeActionTypes.CLEAR_ALL_EPISODE_META,
   };
 };
+
 const setEpisodeSearchQuery = (
   payload: EpisodeSetEpisodeSearchQuery["payload"]
 ): EpisodeSetEpisodeSearchQuery => {
   return {
     type: EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY,
     payload: payload,
+  };
+};
+
+const setEpisodeCurentPage = (
+  payload: EpisodeSetEpisodePageType["payload"]
+): EpisodeSetEpisodePageType => {
+  return {
+    type: EpisodeActionTypes.SET_EPISODE_PAGE,
+    payload: payload,
+  };
+};
+
+const setEpisodeForwardPage = (): EpisodeSetEpisodePageForwardType => {
+  return {
+    type: EpisodeActionTypes.SET_EPISODE_PAGE_FORWARD,
+  };
+};
+
+const setEpisodeBackPage = (): EpisodeSetEpisodePageBackType => {
+  return {
+    type: EpisodeActionTypes.SET_EPISODE_PAGE_BACK,
   };
 };
 
@@ -65,4 +92,7 @@ export const episodeActionCreators = {
   setSingleEpisode,
   clearAllEpisodeMeta,
   setEpisodeSearchQuery,
+  setEpisodeCurentPage,
+  setEpisodeForwardPage,
+  setEpisodeBackPage,
 };

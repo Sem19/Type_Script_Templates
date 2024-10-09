@@ -24,9 +24,22 @@ export type EpisodeSetSingleEpisodeType = {
 export type EpisodeClearAllEpisodeMeta = {
   type: EpisodeActionTypes.CLEAR_ALL_EPISODE_META;
 };
+
 export type EpisodeSetEpisodeSearchQuery = {
   type: EpisodeActionTypes.SET_EPISODE_SEARCH_QUERY;
   payload: EpisodeStateSchema["meta"]["searchQuery"];
+};
+
+export type EpisodeSetEpisodePageType = {
+  type: EpisodeActionTypes.SET_EPISODE_PAGE;
+  payload: EpisodeStateSchema["meta"]["currentPage"];
+};
+export type EpisodeSetEpisodePageForwardType = {
+  type: EpisodeActionTypes.SET_EPISODE_PAGE_FORWARD;
+};
+
+export type EpisodeSetEpisodePageBackType = {
+  type: EpisodeActionTypes.SET_EPISODE_PAGE_BACK;
 };
 
 export type EpisodeActions =
@@ -35,4 +48,7 @@ export type EpisodeActions =
   | EpisodeSetEpisodesType
   | EpisodeSetSingleEpisodeType
   | EpisodeClearAllEpisodeMeta
-  | EpisodeSetEpisodeSearchQuery;
+  | EpisodeSetEpisodeSearchQuery
+  | EpisodeSetEpisodePageType
+  | EpisodeSetEpisodePageForwardType
+  | EpisodeSetEpisodePageBackType;

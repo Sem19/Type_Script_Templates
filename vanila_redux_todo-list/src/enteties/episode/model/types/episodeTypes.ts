@@ -18,5 +18,11 @@ export interface EpisodeStateSchema {
   singleEpisode: IEpisode | null;
   meta: {
     searchQuery: string;
+
+    currentPage: number;
+    pages: number;
+    count: number;
+    prev: string | null;
+    next: string | null;
   };
 }

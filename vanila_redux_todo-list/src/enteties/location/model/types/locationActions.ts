@@ -30,10 +30,26 @@ export type LocationSetLocationSearchQuery = {
   payload: LocationStateSchema["meta"]["searchQuery"];
 };
 
+export type LocationSetLocationPageType = {
+  type: LocationActionTypes.SET_LOCATION_PAGE;
+  payload: LocationStateSchema["meta"]["currentPage"];
+};
+
+export type LocationSetLocationPageForwardType = {
+  type: LocationActionTypes.SET_LOCATION_PAGE_FORWARD;
+};
+
+export type LocationSetLocationPageBackType = {
+  type: LocationActionTypes.SET_LOCATION_PAGE_BACK;
+};
+
 export type LocationActions =
   | LocationSetIsLoadingType
   | LocationSetErrorType
   | LocationSetLocationsType
   | LocationSetSingleLocationsType
   | LocationClearAllLocationMetaType
-  | LocationSetLocationSearchQuery;
+  | LocationSetLocationSearchQuery
+  | LocationSetLocationPageType
+  | LocationSetLocationPageForwardType
+  | LocationSetLocationPageBackType;

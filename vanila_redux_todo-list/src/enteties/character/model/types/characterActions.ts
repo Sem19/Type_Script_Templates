@@ -49,5 +49,5 @@ export type CharacterActions =
   | CharacterClearAllCharacterMetaType
   | CharacterSetCharacterSearchQuery
   | CharacterSetCharacterPageType
-  | CharacterSetCharacterPageForwardType
-  | CharacterSetCharacterPageBackType;
+  | CharacterSetCharacterPageBackType
+  | CharacterSetCharacterPageForwardType;

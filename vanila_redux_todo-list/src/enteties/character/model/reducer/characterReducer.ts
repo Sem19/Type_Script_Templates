@@ -50,19 +50,6 @@ export const characterReducer: Reducer<
       return { ...state, meta: { ...state.meta, currentPage: action.payload } };
     }
 
-    case CharacterActionTypes.SET_CHARACTER_PAGE_BACK: {
-      return {
-        ...state,
-        meta: {
-          ...state.meta,
-          currentPage:
-            state.meta.currentPage !== 1
-              ? state.meta.currentPage - 1
-              : state.meta.currentPage,
-        },
-      };
-    }
-
     case CharacterActionTypes.SET_CHARACTER_PAGE_FORWARD: {
       return {
         ...state,
@@ -71,6 +58,19 @@ export const characterReducer: Reducer<
           currentPage:
             state.meta.currentPage !== state.meta.pages
               ? state.meta.currentPage + 1
+              : state.meta.currentPage,
+        },
+      };
+    }
+
+    case CharacterActionTypes.SET_CHARACTER_PAGE_BACK: {
+      return {
+        ...state,
+        meta: {
+          ...state.meta,
+          currentPage:
+            state.meta.currentPage !== 1
+              ? state.meta.currentPage - 1
               : state.meta.currentPage,
         },
       };

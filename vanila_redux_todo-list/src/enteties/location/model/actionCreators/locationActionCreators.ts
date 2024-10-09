@@ -1,3 +1,7 @@
+import {
+  LocationSetLocationPageForwardType,
+  LocationSetLocationPageBackType,
+} from "./../types/locationActions";
 import { LocationActionTypes } from "../actionTypes/locationActionTypes";
 import {
   LocationClearAllLocationMetaType,
@@ -6,6 +10,7 @@ import {
   LocationSetErrorType,
   LocationSetIsLoadingType,
   LocationSetLocationsType,
+  LocationSetLocationPageType,
 } from "../types/locationActions";
 
 const setIsLoading = (
@@ -59,6 +64,26 @@ const setLocationSearchQuery = (
   };
 };
 
+const setLocationPage = (
+  payload: LocationSetLocationPageType["payload"]
+): LocationSetLocationPageType => {
+  return {
+    type: LocationActionTypes.SET_LOCATION_PAGE,
+    payload: payload,
+  };
+};
+
+const setLocationPageForward = (): LocationSetLocationPageForwardType => {
+  return {
+    type: LocationActionTypes.SET_LOCATION_PAGE_FORWARD,
+  };
+};
+const setLocationPageBack = (): LocationSetLocationPageBackType => {
+  return {
+    type: LocationActionTypes.SET_LOCATION_PAGE_BACK,
+  };
+};
+
 export const locationActionCreators = {
   setIsLoading,
   setError,
@@ -66,4 +91,7 @@ export const locationActionCreators = {
   setSingleLocation,
   clearAllLocationMeta,
   setLocationSearchQuery,
+  setLocationPage,
+  setLocationPageForward,
+  setLocationPageBack,
 };

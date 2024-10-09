@@ -27,7 +27,6 @@ interface CharacterStateSchema {
   meta: {
     searchQuery: string;
     currentPage: number;
-
     pages: number;
     count: number;
     prev: string | null;

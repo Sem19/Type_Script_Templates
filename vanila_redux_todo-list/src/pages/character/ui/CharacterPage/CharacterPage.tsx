@@ -2,9 +2,10 @@
 import { FC } from "react";
 // ui
 import { CharacterPageItems } from "../CharacterPageItems/CharacterPageItems";
+import { CharacterSearchInput } from "../CharacterSearchInput/CharacterSearchInput";
+import { CharacterPagination } from "../CharacterPagination/CharacterPagination";
 // styles
 import styles from "./CharacterPage.module.scss";
-import { CharacterSearchInput } from "../CharacterSearchInput/CharacterSearchInput";
 
 interface CharacterPageProps {}
 
@@ -14,7 +15,9 @@ export const CharacterPage: FC<CharacterPageProps> = ({}) => {
       <div className={styles.CharacterSearchInput}>
         <CharacterSearchInput />
       </div>
+
       <CharacterPageItems />
+      <CharacterPagination />
     </div>
   );
 };

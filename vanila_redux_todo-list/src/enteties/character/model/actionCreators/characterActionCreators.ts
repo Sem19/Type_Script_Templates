@@ -1,4 +1,5 @@
 import {
+  CharacterSetCharacterInfoType,
   CharacterSetCharacterPageBackType,
   CharacterSetCharacterPageForwardType,
   CharacterSetCharacterPageType,
@@ -84,6 +85,15 @@ const setCharacterPageBack = (): CharacterSetCharacterPageBackType => {
   };
 };
 
+const setCharacterInfo = (
+  payload: CharacterSetCharacterInfoType["payload"]
+): CharacterSetCharacterInfoType => {
+  return {
+    type: CharacterActionTypes.SET_CHARACTER_INFO,
+    payload: payload,
+  };
+};
+
 export const characterActionCreators = {
   setIsLoading,
   setError,
@@ -94,4 +104,5 @@ export const characterActionCreators = {
   setCharacterPage,
   setCharacterPageForward,
   setCharacterPageBack,
+  setCharacterInfo,
 };

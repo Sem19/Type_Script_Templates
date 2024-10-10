@@ -5,7 +5,8 @@ import { characterService } from "../services/characterServices";
 export const getAllCharacters =
   (meta: Parameters<typeof characterService.getAllCharacters>[0]) =>
   (dispatch: AppDispatch) => {
-    const { setCharacters, setError, setIsLoading } = characterActionCreators;
+    const { setCharacters, setError, setIsLoading, setCharacterInfo } =
+      characterActionCreators;
 
     dispatch(setIsLoading(true));
 
@@ -13,7 +14,8 @@ export const getAllCharacters =
       .getAllCharacters(meta)
       .then(({ data }) => {
         dispatch(setCharacters(data.results));
-        // dispatch(setError(""));
+        dispatch(setCharacterInfo(data.info));
+        dispatch(setError(""));
       })
       .catch((error) => {
         dispatch(setError(error.message));

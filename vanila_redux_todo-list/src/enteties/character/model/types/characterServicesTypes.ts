@@ -1,14 +1,13 @@
+import { ResponseMeta } from "@/shared/libs/types/meta";
+import { ICharacter } from "./characterTypes";
+
 export interface GetAllCharacterRequest {
   searchQuery: string;
+  currentPage: number;
 }
 
 export interface GetAllCharacterResponse {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
-  };
+  info: ResponseMeta;
 
   results: ICharacter[];
 }

@@ -1,7 +1,6 @@
 // react
 import { FC, useEffect } from "react";
-// styles
-import styles from "./CharacterPageItems.module.scss";
+
 import { getCharacterState } from "@/enteties/character/model/selectors/characterSelectors";
 import { getAllCharacters } from "@/enteties/character/model/thunks/characterThunks";
 import { CharacterItemList } from "@/enteties/character/ui/CharacterItemList/CharacterItemList";
@@ -16,8 +15,13 @@ export const CharacterPageItems: FC<CharacterPageItemsProps> = ({}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCharacters(meta));
-  }, [meta]);
+    dispatch(
+      getAllCharacters({
+        currentPage: meta.currentPage,
+        searchQuery: meta.searchQuery,
+      })
+    );
+  }, [meta.currentPage, meta.searchQuery]);
 
   if (isLoading) {
     return <div>...Loading</div>;

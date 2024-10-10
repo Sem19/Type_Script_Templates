@@ -1,6 +1,7 @@
 import { Reducer } from "redux";
 import { CharacterActions } from "../types/characterActions";
 import { CharacterActionTypes } from "../actionTypes/characterActionTypes";
+import { CharacterStateSchema } from "../types/characterTypes";
 
 const initialState: CharacterStateSchema = {
   characters: [],
@@ -10,6 +11,7 @@ const initialState: CharacterStateSchema = {
   meta: {
     searchQuery: "",
     currentPage: 1,
+
     count: 0,
     next: null,
     pages: 0,
@@ -73,6 +75,13 @@ export const characterReducer: Reducer<
               ? state.meta.currentPage - 1
               : state.meta.currentPage,
         },
+      };
+    }
+
+    case CharacterActionTypes.SET_CHARACTER_INFO: {
+      return {
+        ...state,
+        meta: { ...state.meta, ...action.payload },
       };
     }
 

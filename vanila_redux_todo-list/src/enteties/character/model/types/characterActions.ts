@@ -1,4 +1,6 @@
+import { ResponseMeta } from "@/shared/libs/types/meta";
 import { CharacterActionTypes } from "../actionTypes/characterActionTypes";
+import { CharacterStateSchema } from "./characterTypes";
 
 export type CharacterSetIsLoadingType = {
   type: CharacterActionTypes.SET_IS_LOADING;
@@ -41,6 +43,11 @@ export type CharacterSetCharacterPageBackType = {
   type: CharacterActionTypes.SET_CHARACTER_PAGE_BACK;
 };
 
+export type CharacterSetCharacterInfoType = {
+  type: CharacterActionTypes.SET_CHARACTER_INFO;
+  payload: ResponseMeta;
+};
+
 export type CharacterActions =
   | CharacterSetCharactersType
   | CharacterSetErrorType
@@ -50,4 +57,5 @@ export type CharacterActions =
   | CharacterSetCharacterSearchQuery
   | CharacterSetCharacterPageType
   | CharacterSetCharacterPageBackType
-  | CharacterSetCharacterPageForwardType;
+  | CharacterSetCharacterPageForwardType
+  | CharacterSetCharacterInfoType;

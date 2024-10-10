@@ -7,4 +7,5 @@ export interface ResponseMeta {
 
 export interface PaginationInfo extends ResponseMeta {
   currentPage: number;
+  searchQuery: string;
 }

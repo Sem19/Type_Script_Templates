@@ -1,4 +1,6 @@
-interface ICharacter {
+import { PaginationInfo } from "@/shared/libs/types/meta";
+
+export interface ICharacter {
   id: number;
   name: string;
   status: "Alive" | "Dead" | "unknown";
@@ -19,17 +21,10 @@ interface ICharacter {
   created: string;
 }
 
-interface CharacterStateSchema {
+export interface CharacterStateSchema {
   isLoading: boolean;
   error: string;
   characters: ICharacter[];
   singleCharacter: ICharacter | null;
-  meta: {
-    searchQuery: string;
-    currentPage: number;
-    pages: number;
-    count: number;
-    prev: string | null;
-    next: string | null;
-  };
+  meta: PaginationInfo;
 }

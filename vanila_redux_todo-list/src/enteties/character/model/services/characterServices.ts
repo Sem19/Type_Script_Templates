@@ -9,9 +9,9 @@ import {
 class characterServices {
   private characterEndPoint = "/character";
 
-  async getAllCharacters({ searchQuery }: GetAllCharacterRequest) {
+  async getAllCharacters({ searchQuery, currentPage }: GetAllCharacterRequest) {
     return rickmortyAPIinstanse.get<GetAllCharacterResponse>(
-      `${this.characterEndPoint}?name=${searchQuery}`
+      `${this.characterEndPoint}?name=${searchQuery}&page=${currentPage}`
     );
   }
 
